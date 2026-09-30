@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mis links</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+    form { display: grid; gap: .5rem; margin-bottom: 2rem; }
+    input, select, button { padding: .5rem; font: inherit; }
+    table { width: 100%; border-collapse: collapse; }
+    td, th { text-align: left; padding: .4rem; border-bottom: 1px solid #ddd; word-break: break-all; }
+    .err { color: #b00020; }
+  </style>
+</head>
+<body>
+  <h1>Mis links</h1>
+  <form id="form">
+    <select name="type">
+      <option value="whatsapp">WhatsApp</option>
+      <option value="url">URL</option>
+    </select>
+    <input name="phone" placeholder="Teléfono con código de país (ej. 573001234567)">
+    <input name="message" placeholder="Mensaje prellenado">
+    <input name="url" placeholder="https://..." hidden>
+    <input name="slug" placeholder="Slug personalizado (opcional)">
+    <input name="label" placeholder="Etiqueta (opcional)">
+    <button>Crear</button>
+    <div id="error" class="err"></div>
+  </form>
+  <table>
+    <thead><tr><th>Link</th><th>Etiqueta</th><th>Clicks</th><th></th></tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+  <script src="admin.js"></script>
+</body>
+</html>
