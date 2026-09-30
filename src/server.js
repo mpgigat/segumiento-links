@@ -77,6 +77,8 @@ function resolveTarget({ type, url, phone, message }) {
 }
 
 app.get('/healthz', (_req, res) => res.json({ ok: true }));
+// La raíz no tiene contenido propio: manda al panel (que pide credenciales).
+app.get('/', (_req, res) => res.redirect(302, '/admin/'));
 
 // --- Panel y API (protegidos) ---
 app.use('/admin', authLimiter, auth, express.static(path.join(__dirname, '..', 'public')));
